@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# define the project details
+project=PROJECT_NAME
+base=$HOME/$project
+
+while read oldrev newrev refname
+do
+    branch=`echo "$refname" | sed 's:.*/::'`
+    worktree=$base/$project-$branch
+    echo $worktree
+    mkdir -p $worktree
+    git --work-tree=$worktree --git-dir=$base checkout -f $branch
+    cd $worktree
+    bash entrypoint.sh
+done

@@ -1,4 +1,4 @@
-git config --global autocrlf input
+git config --global core.autocrlf input
 alias python=python3
 alias Vim='vim ~/.vimrc'
 alias Gvim='vim ~/.vim/ghost.vimrc'
