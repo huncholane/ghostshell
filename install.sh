@@ -45,7 +45,4 @@ echo
 
 cd YouCompleteMe
 git submodule update --init --recursive
-sudo apt install golang-go
-sudo apt install openjdk-17-jdk openjdk-17-jre
-sudo apt install cmake
-./install.py --all
+./install.py
