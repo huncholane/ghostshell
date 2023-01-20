@@ -36,3 +36,4 @@ autocmd VimEnter * NERDTree | wincmd p
 :com Gs cd /mnt/c/Users/huncho/code/ghostsystems
 :com Fb cd /mnt/c/Users/huncho/code/ghostsystems/flyingbytes
 :com Bash e ~/.bashrc
+:com Gbash e ~/.ghost/ghost.sh
