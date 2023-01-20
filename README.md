@@ -3,7 +3,7 @@
 
 ### Instructions
 ```
-git clone https://github.com/huncholane/ghostshell.git && cd ghostshell && ./install.sh
+git clone https://github.com/huncholane/ghostshell.git && cd ghostshell && install.sh
 ```
 Go get a nerdfont compatible font.
 This sets up the ghost bash commands and vim configuration.
