@@ -28,6 +28,3 @@ function Gpush() {
     git push -u origin main 
     cd start
 }
-
-export -f vsource
-export -f Gsend
