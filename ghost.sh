@@ -22,8 +22,10 @@ function vsource() {
 }
 function Gsend() {
     local start=`pwd`
+    local message=$@
+    echo message
     cd ~/.ghost
-    gcom '"'$@'"'
+    gcom '"'message'"'
     git push -u origin main 
 }
 
