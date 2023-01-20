@@ -3,6 +3,6 @@
 project=$HOME/$1
 
 git init --bare $project
-cp ~/.ghost/post-receive $project/hooks/post-receive
+cp ~/.ghost/ghook/post-receive $project/hooks/post-receive
 sed -i 's/PROJECT_NAME/'$1'/' $project/hooks/post-receive 
 chmod +x $project/hooks/post-receive
