@@ -4,10 +4,12 @@
 ### Install
 ```
 git clone https://github.com/huncholane/ghostshell.git ~/.ghost && cd ~/.ghost && ./install.sh
+source ~/.bashrc
 ```
 ### Update
 ```
 cd ~/.ghost && git pull
+Source
 ```
 Go get a nerdfont compatible font.
 This sets up the ghost bash commands and vim configuration.
