@@ -1,12 +1,4 @@
 #!/bin/bash
-if [ -d ~/.ghost ]
-then
-    echo 'Ghostshell has been here before... Removing old version'
-    rm -rf ~/.ghost
-fi
-cp -r . ~/.ghost
-echo 'Copied everything to .ghost'
-
 if grep -q 'source ~/.ghost/ghost.sh' ~/.bashrc
 then
     echo 'Bash is configured for ghostshell'
