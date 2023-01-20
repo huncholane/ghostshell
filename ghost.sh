@@ -20,13 +20,13 @@ function vsource() {
         fi
     done
 }
-function Gsend() {
+function Gpush() {
     local start=`pwd`
     local message=$@
-    echo $message
     cd ~/.ghost
     gcom "$message"
     git push -u origin main 
+    cd start
 }
 
 export -f vsource
