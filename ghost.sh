@@ -26,5 +26,5 @@ function Gpush() {
     cd ~/.ghost
     gcom "$message"
     git push -u origin main 
-    cd start
+    cd $start
 }
