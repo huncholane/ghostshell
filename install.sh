@@ -1,6 +1,8 @@
 cp -r . ~/.ghost
 cd ~
+pwd
 cp -r .ghost/ghost.vim .vim
+<<<comment
 echo 'source ~/.ghost/ghost.sh' >> .bashrc
 cp .vimrc /tmp/.vimrc && echo 'source ~/.ghost/ghost.vimrc' > .vimrc && cat /tmp/.vimrc >> .vimrc
 mkdir -p .vim/pack/vendor/start
