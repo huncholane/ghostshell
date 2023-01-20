@@ -12,5 +12,5 @@ git clone https://github.com/rafi/awesome-vim-colorschemes
 git clone https://github.com/davidhalter/jedi-vim
 git clone https://github.com/ryanoasis/vim-devicons
 cd YouCompleteMe
-./install.py --all
+python3 install.py --all
 

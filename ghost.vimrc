@@ -1,4 +1,3 @@
-source ~/.vim/vundle.vimrc
 source ~/.vim/nerdtree.vimrc
 source ~/.vim/cursor.vimrc
 source ~/.vim/autosave.vimrc
