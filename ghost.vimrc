@@ -1,7 +1,7 @@
-source ~/.vim/nerdtree.vimrc
-source ~/.vim/cursor.vimrc
-source ~/.vim/autosave.vimrc
-source ~/.vim/clipboard.vimrc
+source ~/.ghost/ghost.vim/nerdtree.vimrc
+source ~/.ghost/ghost.vim/cursor.vimrc
+source ~/.ghost/ghost.vim/autosave.vimrc
+source ~/.ghost/ghost.vim/clipboard.vimrc
 
 set tabstop=4
 set shiftwidth=4
