@@ -6,3 +6,4 @@ alias clip=clip.exe
 alias Bash='vim ~/.bashrc'
 alias Source='source ~/.bashrc'
 alias gcom='git add . && git commit -m'
+alias ghook='~/.ghost/ghook/startproject.sh'
