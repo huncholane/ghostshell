@@ -52,3 +52,9 @@ function Dj() {
         fi
     done
 }
+function Gupdate() {
+    local start=`pwd`
+    cd ~/.ghost && git pull
+    Source
+    cd $start
+}
