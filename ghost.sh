@@ -1,3 +1,5 @@
+touch ~/.ghost/secret.sh
+source ~/.ghost/secret.sh
 git config --global core.autocrlf input
 if uname -a | grep -q MINGW;then
     alias python3=python
@@ -15,6 +17,7 @@ alias Source='source ~/.bashrc'
 alias gcom='git add . && git commit -m'
 alias ghook='~/.ghost/ghook/startproject.sh'
 alias venv='python -m venv venv'
+alias Gsecret='vim ~/.ghost/secret.sh'
 function vsource() {
     local start=`pwd`
     for i in $(seq 1 5);do
