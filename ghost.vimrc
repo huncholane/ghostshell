@@ -27,6 +27,7 @@ map gb :GitBranch
 map gc :! git add . && git commit -m '
 map gb :! git checkout -b 
 map R ggdGi<C-v><Esc>
+map wr yiw<Esc>:%s/<C-R>"\C/
 
 autocmd VimEnter * NERDTree | wincmd p
 
