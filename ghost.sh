@@ -37,7 +37,7 @@ function Gpush() {
     git push -u origin main 
     cd $start
 }
-function Djs() {
+function djs() {
     local start=`pwd`
     for i in $(seq 1 5);do
         if test -f manage.py;then
@@ -46,7 +46,7 @@ function Djs() {
         fi
     done
 }
-function Dj() {
+function dj() {
     local start=`pwd`
     for i in $(seq 1 5);do
         if test -f manage.py;then
@@ -60,4 +60,20 @@ function Gupdate() {
     cd ~/.ghost && git pull
     Source
     cd $start
+}
+function djp() {
+    # start a django project
+    django-admin startproject $@
+}
+function pi {
+    python -m pip install $@
+}
+function pm {
+    python -m $@
+}
+function redis {
+    docker run -p 6379:6379 --name redis -d redis:5
+}
+function redis-cli {
+    docker exec -it redis redis-cli
 }
