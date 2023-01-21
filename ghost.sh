@@ -1,10 +1,11 @@
 touch ~/.ghost/secret.sh
 source ~/.ghost/secret.sh
-git config --global core.autocrlf input
 if uname -a | grep -q MINGW;then
+    git config --global core.autocrlf true
     alias python3=python
     alias Python=python
 else
+    git config --global core.autocrlf input
     alias python=python3
 fi
 #alias python=python3
