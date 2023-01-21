@@ -26,6 +26,7 @@ map gch :GitCheckout
 map gb :GitBranch 
 map gc :! git add . && git commit -m '
 map gb :! git checkout -b 
+map fr ggdGi<C-v>
 
 autocmd VimEnter * NERDTree | wincmd p
 
