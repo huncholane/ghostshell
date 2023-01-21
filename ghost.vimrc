@@ -28,6 +28,7 @@ map gc :! git add . && git commit -m '
 map gb :! git checkout -b 
 map R ggdGi<C-v><Esc>
 map wr yiw:%s/<C-R>"/
+map pinit i    def __init__(self, *args, **kwargs):<cr>super().__init__(*args, **kwargs)<esc>o
 
 autocmd VimEnter * NERDTree | wincmd p
 
