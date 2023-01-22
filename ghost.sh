@@ -99,6 +99,9 @@ function rootrun {
             chmod +x rootrun.sh
             ./rootrun.sh
             break
+        else
+            cd ..
         fi
     done
+    cd $start
 }
