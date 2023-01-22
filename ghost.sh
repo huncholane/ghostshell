@@ -92,3 +92,13 @@ function pygrep {
     grep -rni "$@" $package
     cd $start
 }
+function rootrun {
+    local start=`pwd`
+    for i in $(seq 1 5);do
+        if test -f rootrun.sh;then
+            chmod +x rootrun.sh
+            ./rootrun.sh
+            break
+        fi
+    done
+}
