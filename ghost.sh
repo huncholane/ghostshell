@@ -105,3 +105,18 @@ function rootrun {
     done
     cd $start
 }
+function gcode {
+    local files=`find . -name $1`
+    local i=0
+    local choices=( )
+    for r in $files;do
+        echo "$i) $r"
+        choices+=( $r )
+        let i=i+1
+    done
+    echo "What file do you want?"
+    read choicenum
+    local choice=${choices[$choicenum]}
+    echo "Opening $choice with vscode"
+    code $choice
+}
