@@ -1,4 +1,6 @@
 #!/bin/bash
+touch ~/.bashrc
+touch ~/.vimrc
 if grep -q 'source ~/.ghost/ghost.sh' ~/.bashrc
 then
     echo 'Bash is configured for ghostshell'
@@ -29,12 +31,8 @@ plug () {
 } 
 
 plug preservim/nerdtree
-plug ycm-core/YouCompleteMe
 plug rafi/awesome-vim-colorschemes
 plug davidhalter/jedi-vim
 plug ryanoasis/vim-devicons
 echo
 
-cd YouCompleteMe
-git submodule update --init --recursive
-./install.py

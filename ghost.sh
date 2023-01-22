@@ -120,3 +120,9 @@ function gcode {
     echo "Opening $choice with vscode"
     code $choice
 }
+function postgres {
+    docker run -p 5432:5432 --name postgres -e POSTGRES_HOST_AUTH_METHOD=trust -d postgres
+}
+function psql {
+    docker exec -it postgres psql -U postgres $@
+}
