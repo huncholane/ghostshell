@@ -2,6 +2,7 @@ touch ~/.ghost/secret.sh
 source ~/.ghost/secret.sh
 git config --global core.autocrlf input
 if uname -a | grep -q MINGW;then
+    export thisos='windows'
     alias python3=python
     alias Python=python
 else
@@ -79,4 +80,15 @@ function redis {
 }
 function redis-cli {
     docker exec -it redis redis-cli $@
+}
+function pygrep {
+    local start=`pwd`
+    local pylocation=`which python`
+    local pydir=`dirname $pylocation`
+    local packagedir=$pydir/Lib/site-packages
+    cd $packagedir
+    local package=$1
+    shift
+    grep -rni "$@" $package
+    cd $start
 }
