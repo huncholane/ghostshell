@@ -14,10 +14,14 @@ alias Gbash='vim ~/.ghost/ghost.sh'
 alias clip=clip.exe
 alias Bash='vim ~/.bashrc'
 alias Source='source ~/.bashrc'
-alias gcom='git add . && git commit -m'
 alias ghook='~/.ghost/ghook/startproject.sh'
 alias venv='python -m venv venv'
 alias Gsecret='vim ~/.ghost/secret.sh'
+function gcom {
+    local message=$@
+    echo "$message"
+    git add . && git commit -m "$message"
+}
 function vsource() {
     local start=`pwd`
     for i in $(seq 1 5);do
@@ -31,9 +35,8 @@ function vsource() {
 }
 function Gpush() {
     local start=`pwd`
-    local message=$@
     cd ~/.ghost
-    gcom "$message"
+    gcom $@
     git push -u origin main 
     cd $start
 }
@@ -75,5 +78,5 @@ function redis {
     docker run -p 6379:6379 --name redis -d redis:5
 }
 function redis-cli {
-    docker exec -it redis redis-cli
+    docker exec -it redis redis-cli $@
 }
