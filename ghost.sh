@@ -6,6 +6,7 @@ if uname -a | grep -q MINGW;then
     export thisos='windows'
     alias python3=python
     alias Python=python
+    alias drivers='cd /c/Windows/System32/drivers/etc'
 else
     alias python=python3
 fi
@@ -28,5 +29,6 @@ alias pi='python -m pip install'
 alias djp='django-admin startproject'
 alias dwipe='~/.ghost/dwipe.sh'
 alias Ggit='vim ~/.gitconfig'
+alias ddev='docker compose -f dev-compose.yml up -d --remove-orphans'
 
 source ~/.ghost/gfuncs.sh

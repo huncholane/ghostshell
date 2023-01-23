@@ -56,12 +56,12 @@ function pygrep {
     grep -rni "$@" $package
     cd $start
 }
-function rootrun {
+function dev {
     local start=`pwd`
     for i in $(seq 1 5);do
-        if test -f rootrun.sh;then
-            chmod +x rootrun.sh
-            ./rootrun.sh
+        if test -f dev.sh;then
+            chmod +x dev.sh
+            ./dev.sh
             break
         else
             cd ..
@@ -83,4 +83,16 @@ function gcode {
     local choice=${choices[$choicenum]}
     echo "Opening $choice with vscode"
     code $choice
+}
+function vbash {
+    local start=`pwd`
+    for i in $(seq 1 5);do
+        if test -d venv;then
+            vim venv/**/activate
+            break
+        else
+            cd ..
+        fi
+    done
+    cd $start
 }
