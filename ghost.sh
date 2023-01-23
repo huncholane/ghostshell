@@ -6,7 +6,7 @@ if uname -a | grep -q MINGW;then
     export thisos='windows'
     alias python3=python
     alias Python=python
-    alias drivers='cd /c/Windows/System32/drivers/etc'
+    alias drivers='/c/Windows/System32/drivers/etc'
 else
     alias python=python3
 fi

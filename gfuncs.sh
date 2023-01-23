@@ -96,3 +96,9 @@ function vbash {
     done
     cd $start
 }
+function wdl {
+    dirname `which $1`
+}
+function wd {
+    cd `wdl $1`
+}
