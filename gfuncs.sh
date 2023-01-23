@@ -53,7 +53,29 @@ function pygrep {
     cd $packagedir
     local package=$1
     shift
-    grep -rni "$@" $package
+    local search=$@
+    grep -rni "$search" $package
+    cd $start
+}
+function pygrepcore {
+    local start=`pwd`
+    wd python
+    cd include
+    local package=$1
+    shift
+    grep "$@" $package.h
+    cd $start
+}
+function pmain {
+    local start=`pwd`
+    for i in $(seq 1 5);do
+        if test -f main.py;then
+            python main.py
+            break
+        else
+            cd ..
+        fi
+    done
     cd $start
 }
 function dev {
