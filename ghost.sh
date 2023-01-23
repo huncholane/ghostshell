@@ -1,6 +1,7 @@
 touch ~/.ghost/secret.sh
 source ~/.ghost/secret.sh
 git config --global core.autocrlf input
+git config --global pull.rebase true
 if uname -a | grep -q MINGW;then
     export thisos='windows'
     alias python3=python
@@ -8,121 +9,24 @@ if uname -a | grep -q MINGW;then
 else
     alias python=python3
 fi
-#alias python=python3
 alias Vim='vim ~/.vimrc'
 alias Gvim='vim ~/.ghost/ghost.vimrc'
 alias Gbash='vim ~/.ghost/ghost.sh'
+alias Gfuncs='vim ~/.ghost/gfuncs.sh'
 alias clip=clip.exe
 alias Bash='vim ~/.bashrc'
 alias Source='source ~/.bashrc'
 alias ghook='~/.ghost/ghook/startproject.sh'
 alias venv='python -m venv venv'
 alias Gsecret='vim ~/.ghost/secret.sh'
-function gcom {
-    local message=$@
-    echo "$message"
-    git add . && git commit -m "$message"
-}
-function vsource() {
-    local start=`pwd`
-    for i in $(seq 1 5);do
-        if ! source venv/**/activate; then
-            cd ..
-        else 
-            cd $start
-            break
-        fi
-    done
-}
-function Gpush() {
-    local start=`pwd`
-    cd ~/.ghost
-    gcom $@
-    git push -u origin main 
-    cd $start
-}
-function djs() {
-    local start=`pwd`
-    for i in $(seq 1 5);do
-        if test -f manage.py;then
-            python manage.py runserver $1
-            break
-        fi
-    done
-}
-function dj() {
-    local start=`pwd`
-    for i in $(seq 1 5);do
-        if test -f manage.py;then
-            python manage.py $@
-            break
-        fi
-    done
-}
-function Gupdate() {
-    local start=`pwd`
-    cd ~/.ghost && git pull
-    Source
-    cd $start
-}
-function djp() {
-    # start a django project
-    django-admin startproject $@
-}
-function pi {
-    python -m pip install $@
-}
-function pm {
-    python -m $@
-}
-function redis {
-    docker run -p 6379:6379 --name redis -d redis:5
-}
-function redis-cli {
-    docker exec -it redis redis-cli $@
-}
-function pygrep {
-    local start=`pwd`
-    local pylocation=`which python`
-    local pydir=`dirname $pylocation`
-    local packagedir=$pydir/Lib/site-packages
-    cd $packagedir
-    local package=$1
-    shift
-    grep -rni "$@" $package
-    cd $start
-}
-function rootrun {
-    local start=`pwd`
-    for i in $(seq 1 5);do
-        if test -f rootrun.sh;then
-            chmod +x rootrun.sh
-            ./rootrun.sh
-            break
-        else
-            cd ..
-        fi
-    done
-    cd $start
-}
-function gcode {
-    local files=`find . -name $1`
-    local i=0
-    local choices=( )
-    for r in $files;do
-        echo "$i) $r"
-        choices+=( $r )
-        let i=i+1
-    done
-    echo "What file do you want?"
-    read choicenum
-    local choice=${choices[$choicenum]}
-    echo "Opening $choice with vscode"
-    code $choice
-}
-function postgres {
-    docker run -p 5432:5432 --name postgres -e POSTGRES_HOST_AUTH_METHOD=trust -d postgres
-}
-function psql {
-    docker exec -it postgres psql -U postgres $@
-}
+alias postgres='docker run -p 5432:5432 --name postgres -e POSTGRES_HOST_AUTH_METHOD=trust -v postgres -d postgres:15'
+alias psql='docker exec -it postgres psql -U postgres'
+alias redis='docker run -p 6379:6379 --name redis -v redis -d redis:5'
+alias redis-cli='docker exec -it redis redis-cli'
+alias pm='python -m'
+alias pi='python -m pip install'
+alias djp='django-admin startproject'
+alias dwipe='~/.ghost/dwipe.sh'
+alias Ggit='vim ~/.gitconfig'
+
+source ~/.ghost/gfuncs.sh
