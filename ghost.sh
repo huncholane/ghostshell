@@ -30,5 +30,6 @@ alias djp='django-admin startproject'
 alias dwipe='~/.ghost/dwipe.sh'
 alias Ggit='vim ~/.gitconfig'
 alias ddev='docker compose -f dev-compose.yml up -d --remove-orphans'
+alias Gcd='cd ~/.ghost'
 
 source ~/.ghost/gfuncs.sh

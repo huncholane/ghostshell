@@ -6,13 +6,14 @@ function gcom {
 function vsource() {
     local start=`pwd`
     for i in $(seq 1 5);do
-        if ! source venv/**/activate; then
-            cd ..
-        else 
-            cd $start
+        if test -d venv; then
+            source venv/**/activate
             break
+        else 
+            cd ..
         fi
     done
+    cd $start
 }
 function Gpush() {
     local start=`pwd`
@@ -27,8 +28,11 @@ function djs() {
         if test -f manage.py;then
             python manage.py runserver $1
             break
+        else
+            cd ..
         fi
     done
+    cd $start
 }
 function dj() {
     local start=`pwd`
@@ -36,8 +40,11 @@ function dj() {
         if test -f manage.py;then
             python manage.py $@
             break
+        else
+            cd ..
         fi
     done
+    cd $start
 }
 function Gupdate() {
     local start=`pwd`
@@ -123,4 +130,16 @@ function wdl {
 }
 function wd {
     cd `wdl $1`
+}
+function dev {
+    local start=`pwd`
+    for i in $(seq 1 5);do
+        if test -f dev.sh;then
+            ./dev.sh
+            break
+        else
+            cd ..
+        fi
+    done
+    cd $start
 }

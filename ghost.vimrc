@@ -16,18 +16,14 @@ hi Normal guibg=NONE ctermbg=NONE
 
 
 imap jj <Esc>
+imap <A-,> <Esc>A,<cr>
+map ,, A,<cr>
 map <F8> :w<cr>
 map <F10> :wqall<cr>
 map <F9> :w<cr>:! python3 %<cr>
 map <F7> :w<cr>:! python3 main.py<cr>
 imap <F7> <Esc><F7>
-map gc :GitCommit 
-map gch :GitCheckout 
-map gb :GitBranch 
-map gc :! git add . && git commit -m '
-map gb :! git checkout -b 
 map R ggdGi<C-v><Esc>
-map wr yiw:%s/<C-R>"/
 
 autocmd VimEnter * NERDTree | wincmd p
 
