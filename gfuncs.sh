@@ -143,3 +143,21 @@ function dev {
     done
     cd $start
 }
+function pipd () {
+    updatesetupversion
+    rm -rf dist *.egg-info build
+    python setup.py bdist_wheel
+    pm twine upload --skip-existing dist/*
+    rm -rf dist *.egg-info build
+    gcom `cat setup.py | grep version`
+    git push origin main
+}
+function updatesetupversion () {
+    local num=`cat setup.py | grep version | tr -dc '0-9.'`
+    local updatePart=`echo $num | grep -oE '[^.]+$'`
+    local updatedPart=$((updatePart+1))
+    local firstPart=`echo $num | grep -oE -m 0 '[^.]+$'`
+    local update=$((firstPart)).$updatedPart
+    echo $update
+    sed -i "s/$num/$update/g" setup.py
+}
