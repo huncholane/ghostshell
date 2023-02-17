@@ -24,6 +24,7 @@ map <F9> :w<cr>:! python3 %<cr>
 map <F7> :w<cr>:! python3 main.py<cr>
 imap <F7> <Esc><F7>
 map R ggdGi<C-v><Esc>
+map Z gg"*yG
 
 autocmd VimEnter * NERDTree | wincmd p
 

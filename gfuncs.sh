@@ -77,7 +77,7 @@ function pmain {
     local start=`pwd`
     for i in $(seq 1 5);do
         if test -f main.py;then
-            python main.py
+            python main.py $@
             break
         else
             cd ..

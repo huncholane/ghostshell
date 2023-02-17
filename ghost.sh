@@ -31,5 +31,6 @@ alias dwipe='~/.ghost/dwipe.sh'
 alias Ggit='vim ~/.gitconfig'
 alias ddev='docker compose -f dev-compose.yml up -d --remove-orphans'
 alias Gcd='cd ~/.ghost'
+alias pipd='rm -rf dist *.egg-info && python setup.py bdist_wheel && pm twine upload dist/* ; rm -rf dist *.egg-info build'
 
 source ~/.ghost/gfuncs.sh
