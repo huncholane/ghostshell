@@ -161,3 +161,38 @@ function updatesetupversion () {
     echo $update
     sed -i "s/$num/$update/g" setup.py
 }
+function psand () { 
+    local start=`pwd`
+    for i in $(seq 1 5);do
+        if test -f sandbox.py;then
+            python sandbox.py
+            break
+        else
+            cd ..
+        fi
+    done
+    cd $start
+}
+function venv () {
+    pm venv venv
+    vsource
+    pi --upgrade pip
+    pi -U autopep8
+}
+function rust () {
+    local base=`echo $1 | cut -d\. -f1`
+    rustc $1 && ./$base && rm $base.exe $base.pdb
+}
+function forward () {
+    while true; do
+        ssh -N -R $2:localhost:$3 $1
+    done
+}
+function dnames () {
+    docker ps --format '{{.Names}}'
+}
+function dsh () {
+    local container=$(dnames | grep $1 | head -1)
+    echo "Connecting to $container"
+    docker exec -it $container sh
+}

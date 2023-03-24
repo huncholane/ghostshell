@@ -20,6 +20,7 @@ imap <A-,> <Esc>A,<cr>
 map ,, A,<cr>
 map <F8> :w<cr>
 map <F10> :wqall<cr>
+imap <F10> :wqall<cr>
 map <F9> :w<cr>:! python3 %<cr>
 map <F7> :w<cr>:! python3 main.py<cr>
 imap <F7> <Esc><F7>
